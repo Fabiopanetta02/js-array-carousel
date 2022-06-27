@@ -17,6 +17,7 @@ MILESTONE 3
 Al click dell'utente sulle frecce, l'immagine attiva cambia e diventa visibile nello slider, prendendo il posto della precedente.
 */
 
+
 //1- CREO ARRAY
 const randomImg = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/05.jpg',]
 
@@ -26,9 +27,40 @@ const gallery = document.getElementById('gallery');
 let images = '';
 
 for(let i = 0; i < randomImg.length; i++){
-    images += `<img src="${randomImg[i]}" alt="">` 
+    images += `<img src="${randomImg[i]}" alt="" id="img">` 
 }
 
 gallery.innerHTML = images;
 
-//3- 
+
+//3--Preparo un variabile per tenere d'occhio l'immagine attiva
+let currentActiveIndex = 0;
+
+//4--Decido che all'apertura della pagina sia sempre attiva la prima immagine
+const img = document.getElementById('img')
+img[currentActiveIndex].classList.add("active");
+
+
+//5-Recupero i bottoni con l'id
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next')
+
+
+//6-Aggiungo un addEvenListener sul button in modo da cambiare immagine
+nextButton.addEventListener('click', function(){
+    //rimuovo la class active
+    img[currentActiveIndex].classList.remove('active')
+
+    //incremento il currentActiveIndex in modo da cambiare immagine
+    currentActiveIndex++
+
+    //controllo in che posizione sono
+    if(currentActiveIndex === randomImg.length){
+        currentActiveIndex = 0
+    }
+    else{
+        //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
+        img[currentActiveIndex].classList.add('active')
+    }  
+})
+
