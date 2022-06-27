@@ -1,4 +1,33 @@
-/* :root{
-    --pink: #E53170;
-} */
+#carousel{
+    width: 800px;
+    height: 500px;
+    margin: 30px auto;
+    position: relative;
+}
 
+#carousel .gallery{
+    width: 100%;
+    height: 100%;
+}
+
+#carousel .gallery img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#carousel .bi{
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#carousel .bi-arrow-left-square-fill{
+    right: 105%;
+}
+
+#carousel .bi-arrow-right-square-fill{
+    left: 105%;
+}
