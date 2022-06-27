@@ -58,9 +58,23 @@ nextButton.addEventListener('click', function(){
     if(currentActiveIndex == randomImg.length){
         currentActiveIndex = 0
     }
-    else{
-        //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
-        img[currentActiveIndex].classList.add('active')
-    }  
+    //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
+    img[currentActiveIndex].classList.add('active')
+})
+
+//7-Aggiungo un addEvenListener sul button Prev in modo da cambiare immagine
+prevButton.addEventListener('click', function(){
+    //rimuovo la class active
+    img[currentActiveIndex].classList.remove('active')
+
+    //incremento il currentActiveIndex in modo da cambiare immagine
+    currentActiveIndex--
+
+    //controllo in che posizione sono
+    if(currentActiveIndex == randomImg.length){
+        currentActiveIndex = 4
+    }
+    //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
+    img[currentActiveIndex].classList.add('active')
 })
 
