@@ -16,3 +16,19 @@ Al termine di questa fase ci ritroveremo con lo stesso slider, ma costruito dina
 MILESTONE 3
 Al click dell'utente sulle frecce, l'immagine attiva cambia e diventa visibile nello slider, prendendo il posto della precedente.
 */
+
+//1- CREO ARRAY
+const randomImg = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/05.jpg',]
+
+//2- STAMPO IN PAGINA GLI ELEMENTI DELLA ARRAY
+const gallery = document.getElementById('gallery');
+
+let images = '';
+
+for(let i = 0; i < randomImg.length; i++){
+    images += `<img src="${randomImg[i]}" alt="">` 
+}
+
+gallery.innerHTML = images;
+
+//3- 
