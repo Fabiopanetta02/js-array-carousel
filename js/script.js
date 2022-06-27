@@ -17,9 +17,9 @@ MILESTONE 3
 Al click dell'utente sulle frecce, l'immagine attiva cambia e diventa visibile nello slider, prendendo il posto della precedente.
 */
 
-
+// !LOGICA IMMAGINI //
 //1- CREO ARRAY
-const randomImg = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/05.jpg',]
+const randomImg = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/05.jpg', 'img/06.jpg', 'img/07.jpg', 'img/08.jpg', 'img/09.jpg', 'img/10.jpg',]
 
 //2- STAMPO IN PAGINA GLI ELEMENTI DELLA ARRAY
 const gallery = document.getElementById('gallery');
@@ -32,7 +32,6 @@ for(let i = 0; i < randomImg.length; i++){
 
 gallery.innerHTML = images;
 
-
 //3--Preparo un variabile per tenere d'occhio l'immagine attiva
 let currentActiveIndex = 0;
 
@@ -41,45 +40,41 @@ const img = document.getElementsByClassName('img')
 img[currentActiveIndex].classList.add("active");
 
 
+// !LOGICA BOTTONI //
 //5-Recupero i bottoni con l'id
 const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next')
-
-
-//////BOTTONI/////
+const nextButton = document.getElementById('next');
 
 //6-Aggiungo un addEvenListener sul button NEXT in modo da cambiare immagine
 nextButton.addEventListener('click', function(){
     //rimuovo la class active
-    img[currentActiveIndex].classList.remove('active')
+    img[currentActiveIndex].classList.remove('active');
 
     //incremento il currentActiveIndex in modo da cambiare immagine
-    currentActiveIndex++
+    currentActiveIndex++;
 
     //controllo in che posizione sono
     if(currentActiveIndex == randomImg.length){
-        currentActiveIndex = 0
+        currentActiveIndex = 0;
     }
     //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
-    img[currentActiveIndex].classList.add('active')
+    img[currentActiveIndex].classList.add('active');
 })
-
-
 
 //7-Aggiungo un addEvenListener sul button Prev in modo da cambiare immagine
 prevButton.addEventListener('click', function(){
     //rimuovo la class active
-    img[currentActiveIndex].classList.remove('active')
+    img[currentActiveIndex].classList.remove('active');
 
     //incremento il currentActiveIndex in modo da cambiare immagine
-    currentActiveIndex--
+    currentActiveIndex--;
 
     //controllo in che posizione sono
     if(currentActiveIndex == -1){
-        currentActiveIndex = 4 
+        currentActiveIndex = randomImg.length - 1;
     }
     //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
-    img[currentActiveIndex].classList.add('active')
+    img[currentActiveIndex].classList.add('active');
 })
 
 
