@@ -27,7 +27,7 @@ const gallery = document.getElementById('gallery');
 let images = '';
 
 for(let i = 0; i < randomImg.length; i++){
-    images += `<img src="${randomImg[i]}" alt="" id="img">` 
+    images += `<img src="${randomImg[i]}" alt="" class="img">` 
 }
 
 gallery.innerHTML = images;
@@ -37,7 +37,7 @@ gallery.innerHTML = images;
 let currentActiveIndex = 0;
 
 //4--Decido che all'apertura della pagina sia sempre attiva la prima immagine
-const img = document.getElementById('img')
+const img = document.getElementsByClassName('img')
 img[currentActiveIndex].classList.add("active");
 
 
@@ -46,7 +46,7 @@ const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next')
 
 
-//6-Aggiungo un addEvenListener sul button in modo da cambiare immagine
+//6-Aggiungo un addEvenListener sul button NEXT in modo da cambiare immagine
 nextButton.addEventListener('click', function(){
     //rimuovo la class active
     img[currentActiveIndex].classList.remove('active')
@@ -55,7 +55,7 @@ nextButton.addEventListener('click', function(){
     currentActiveIndex++
 
     //controllo in che posizione sono
-    if(currentActiveIndex === randomImg.length){
+    if(currentActiveIndex == randomImg.length){
         currentActiveIndex = 0
     }
     else{
