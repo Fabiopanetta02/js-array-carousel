@@ -46,6 +46,8 @@ const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next')
 
 
+//////BOTTONI/////
+
 //6-Aggiungo un addEvenListener sul button NEXT in modo da cambiare immagine
 nextButton.addEventListener('click', function(){
     //rimuovo la class active
@@ -62,6 +64,8 @@ nextButton.addEventListener('click', function(){
     img[currentActiveIndex].classList.add('active')
 })
 
+
+
 //7-Aggiungo un addEvenListener sul button Prev in modo da cambiare immagine
 prevButton.addEventListener('click', function(){
     //rimuovo la class active
@@ -71,10 +75,11 @@ prevButton.addEventListener('click', function(){
     currentActiveIndex--
 
     //controllo in che posizione sono
-    if(currentActiveIndex == randomImg.length){
-        currentActiveIndex = 4
+    if(currentActiveIndex == -1){
+        currentActiveIndex = 4 
     }
     //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
     img[currentActiveIndex].classList.add('active')
 })
+
 
