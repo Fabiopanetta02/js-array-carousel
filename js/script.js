@@ -19,25 +19,40 @@ Al click dell'utente sulle frecce, l'immagine attiva cambia e diventa visibile n
 
 // !LOGICA IMMAGINI //
 //1- CREO ARRAY
-const randomImg = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/05.jpg', 'img/06.jpg', 'img/07.jpg', 'img/08.jpg', 'img/09.jpg', 'img/10.jpg',]
+const sources = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/05.jpg', 'img/06.jpg', 'img/07.jpg', 'img/08.jpg', 'img/09.jpg', 'img/10.jpg',]
 
-//2- STAMPO IN PAGINA GLI ELEMENTI DELLA ARRAY
+//2- STAMPO IN PAGINA GLI ELEMENTI DELLA ARRAY CON IL METODO DELLA STRINGA
 const gallery = document.getElementById('gallery');
+const thumbs = document.getElementById('thumbnail');
 
+//GALLERY
 let images = '';
 
-for(let i = 0; i < randomImg.length; i++){
-    images += `<img src="${randomImg[i]}" alt="" class="img">` 
+for(let i = 0; i < sources.length; i++){
+    images += `<img src="${sources[i]}" alt="landscape-${i + 1}" class="img">` 
 }
 
 gallery.innerHTML = images;
+
+
+//THUMBNAIL
+let thumbImages = '';
+
+for(let i = 0; i < sources.length; i++){
+    thumbImages += `<img src="${sources[i]}" alt="landscape-${i + 1}" class="thumb">` 
+}
+
+thumbs.innerHTML = thumbImages;
 
 //3--Preparo un variabile per tenere d'occhio l'immagine attiva
 let currentActiveIndex = 0;
 
 //4--Decido che all'apertura della pagina sia sempre attiva la prima immagine
-const img = document.getElementsByClassName('img')
-img[currentActiveIndex].classList.add("active");
+const imgGallery = document.getElementsByClassName('img');
+imgGallery[currentActiveIndex].classList.add("active");
+
+const imgThumb = document.getElementsByClassName('thumb');
+imgThumb[currentActiveIndex].classList.add("active");
 
 
 // !LOGICA BOTTONI //
@@ -48,33 +63,39 @@ const nextButton = document.getElementById('next');
 //6-Aggiungo un addEvenListener sul button NEXT in modo da cambiare immagine
 nextButton.addEventListener('click', function(){
     //rimuovo la class active
-    img[currentActiveIndex].classList.remove('active');
+    imgGallery[currentActiveIndex].classList.remove('active');
+    imgThumb[currentActiveIndex].classList.remove("active");
 
     //incremento il currentActiveIndex in modo da cambiare immagine
     currentActiveIndex++;
 
     //controllo in che posizione sono
-    if(currentActiveIndex == randomImg.length){
+    if(currentActiveIndex == sources.length){
         currentActiveIndex = 0;
     }
+
     //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
-    img[currentActiveIndex].classList.add('active');
+    imgGallery[currentActiveIndex].classList.add('active');
+    imgThumb[currentActiveIndex].classList.add("active");
 })
 
 //7-Aggiungo un addEvenListener sul button Prev in modo da cambiare immagine
 prevButton.addEventListener('click', function(){
     //rimuovo la class active
-    img[currentActiveIndex].classList.remove('active');
+    imgGallery[currentActiveIndex].classList.remove('active');
+    imgThumb[currentActiveIndex].classList.remove("active");
 
-    //incremento il currentActiveIndex in modo da cambiare immagine
+    //decremento il currentActiveIndex in modo da cambiare immagine
     currentActiveIndex--;
 
     //controllo in che posizione sono
-    if(currentActiveIndex == -1){
-        currentActiveIndex = randomImg.length - 1;
+    if(currentActiveIndex < 0){
+        currentActiveIndex = sources.length - 1;
     }
+
     //Assegno la classe active alla nuova immagine corrispondente al currentActiveIndex 
-    img[currentActiveIndex].classList.add('active');
+    imgGallery[currentActiveIndex].classList.add('active');
+    imgThumb[currentActiveIndex].classList.add("active");
 })
 
 

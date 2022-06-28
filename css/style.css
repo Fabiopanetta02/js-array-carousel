@@ -1,3 +1,6 @@
+/*****************
+CAROUSEL 
+******************/
 #carousel{
     width: 800px;
     height: 400px;
@@ -30,7 +33,7 @@
 }
 
 #carousel .bi:hover{
-    color: aquamarine;
+    color: dodgerblue;
 }
 
 #carousel .bi-arrow-left-square-fill{
@@ -39,4 +42,34 @@
 
 #carousel .bi-arrow-right-square-fill{
     left: 105%;
+}
+
+
+/* ? THUMBNAIL */
+#thumbnail{
+    width: 800px;
+    height: 80px;
+    margin: auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#thumbnail img {
+    width: 19%;
+    height: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    filter: grayscale(1);
+}
+
+#thumbnail img:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+#thumbnail .active{
+    filter: grayscale(0);
+    box-shadow: 0 0 10px dodgerblue;
 }
